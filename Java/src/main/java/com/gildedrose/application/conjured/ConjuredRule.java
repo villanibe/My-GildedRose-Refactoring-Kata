@@ -12,7 +12,7 @@ public class ConjuredRule extends UpdateInventoryTemplateRule {
 
     @Override
     protected int getQualityFactor(boolean isExpired, ItemAdapter itemAdapter) {
-        return 2;
+        return isExpired ? 4 : 2;
     }
 
     @Override

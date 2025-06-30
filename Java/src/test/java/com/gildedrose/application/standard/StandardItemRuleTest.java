@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StandardItemRuleTest {
 
     @Test
-    void whenSellInDateIsPassed_qualityDegradesTwiceAsFast() {
+    void standardItemQualityDecreasesByTwoWhenExpired() {
         //given
         Item testItem = new Item("standard item", 0, 3);
         ItemAdapter itemAdapter = new ItemAdapter(ItemType.STANDARD, testItem);

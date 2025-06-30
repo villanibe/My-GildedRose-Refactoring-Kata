@@ -25,7 +25,7 @@ public class ConjuredRuleTest {
     }
 
     @Test
-    void conjuredItemQualityDecreasesByTwoWhenExpired() {
+    void conjuredItemQualityDecreasesByFourWhenExpired() {
         //given
         Item testItem = new Item("Conjured Mana Cake", 0, 6);
         ItemAdapter itemAdapter = new ItemAdapter(ItemType.CONJURED, testItem);
@@ -36,6 +36,6 @@ public class ConjuredRuleTest {
 
         //then
         assertEquals(-1, itemAdapter.getItem().sellIn);
-        assertEquals(4, itemAdapter.getItem().quality);
+        assertEquals(2, itemAdapter.getItem().quality);
     }
 }
