@@ -9,7 +9,7 @@ public abstract class UpdateInventoryTemplateRule {
     final int SELL_IN_EXPIRED = 0;
     final int SELL_IN_UNIT = 1;
 
-    public final void processItem(final ItemAdapter itemAdapter) {
+    public void processItem(final ItemAdapter itemAdapter) {
 
         boolean isExpired = isExpired(itemAdapter);
         int qualityFactor = getQualityFactor(isExpired, itemAdapter);
@@ -30,7 +30,7 @@ public abstract class UpdateInventoryTemplateRule {
     protected abstract boolean canSubtractSellIn(final ItemAdapter itemAdapter);
     protected abstract int getQualityFactor(final boolean isExpired, final ItemAdapter itemAdapter);
     protected abstract boolean canIncreaseQuality(final boolean isExpired, final ItemAdapter itemAdapter);
-    protected abstract boolean canDecreaseQuality(boolean isExpired, final ItemAdapter itemAdapter);
+    protected abstract boolean canDecreaseQuality(final boolean isExpired, final ItemAdapter itemAdapter);
 
     private void subtractSellIn(final ItemAdapter itemAdapter) {
         itemAdapter.getItem().sellIn -= SELL_IN_UNIT;

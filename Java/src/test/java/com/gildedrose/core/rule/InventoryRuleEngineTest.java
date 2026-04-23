@@ -11,7 +11,7 @@ public class InventoryRuleEngineTest {
     @Test
     void shouldApplyAgedBrieRule() {
         //given
-        ItemAdapter itemAdapter = new ItemAdapter(ItemType.AGEG_BRIE, new Item("Aged Brie", 3, 0));
+        ItemAdapter itemAdapter = new ItemAdapter(ItemType.AGED_BRIE, new Item("Aged Brie", 3, 0));
 
         //when
         InventoryRuleEngine.applyUpdateRule(itemAdapter);

@@ -14,7 +14,7 @@ import java.util.Map;
 public class InventoryRuleEngine {
 
     private static final Map<ItemType, UpdateInventoryTemplateRule> updateInventoryRules = new HashMap<>(){{
-        put(ItemType.AGEG_BRIE, new AgedBrieRule());
+        put(ItemType.AGED_BRIE, new AgedBrieRule());
         put(ItemType.SULFURAS, new SulfurasRule());
         put(ItemType.BACKSTAGE_PASSES, new BackstagePassesRule());
         put(ItemType.STANDARD, new StandardItemRule());
@@ -22,8 +22,11 @@ public class InventoryRuleEngine {
     }};
 
     public static void applyUpdateRule(ItemAdapter itemAdapter) {
-        if (null != updateInventoryRules.get(itemAdapter.getItemType())) {
-            updateInventoryRules.get(itemAdapter.getItemType()).processItem(itemAdapter);
+        final UpdateInventoryTemplateRule rule = updateInventoryRules.get(itemAdapter.getItemType());
+        if (rule != null) {
+            rule.processItem(itemAdapter);
+        } else {
+            throw new IllegalArgumentException("No rule found for item type: " + itemAdapter.getItemType());
         }
     }
 }

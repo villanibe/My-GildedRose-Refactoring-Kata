@@ -12,7 +12,7 @@ public class ItemTypeTest {
         //when
         ItemType result = ItemType.findByValue(agedBrie);
         //then
-        assertEquals(ItemType.AGEG_BRIE, result);
+        assertEquals(ItemType.AGED_BRIE, result);
     }
 
     @Test

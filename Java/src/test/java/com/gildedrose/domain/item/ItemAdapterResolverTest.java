@@ -3,14 +3,14 @@ package com.gildedrose.domain.item;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ItemAdapterSimpleFactoryTest {
+public class ItemAdapterResolverTest {
 
     @Test
     void shouldCreateAgedBrieItemAdapter(){
         //given
         Item agedBrie = new Item("Aged Brie", 2, 0);
         //when
-        ItemAdapter result = ItemAdapterSimpleFactory.createItemAdapter(agedBrie);
+        ItemAdapter result = ItemAdapterResolver.createItemAdapter(agedBrie);
         //then
         assertEquals(agedBrie.name, result.getItem().name);
         assertEquals(agedBrie.sellIn, result.getItem().sellIn);
@@ -23,7 +23,7 @@ public class ItemAdapterSimpleFactoryTest {
         //given
         Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
         //when
-        ItemAdapter result = ItemAdapterSimpleFactory.createItemAdapter(backstagePasses);
+        ItemAdapter result = ItemAdapterResolver.createItemAdapter(backstagePasses);
         //then
         assertEquals(backstagePasses.name, result.getItem().name);
         assertEquals(backstagePasses.sellIn, result.getItem().sellIn);
@@ -36,7 +36,7 @@ public class ItemAdapterSimpleFactoryTest {
         //given
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
         //when
-        ItemAdapter result = ItemAdapterSimpleFactory.createItemAdapter(sulfuras);
+        ItemAdapter result = ItemAdapterResolver.createItemAdapter(sulfuras);
         //then
         assertEquals(sulfuras.name, result.getItem().name);
         assertEquals(sulfuras.sellIn, result.getItem().sellIn);
@@ -49,7 +49,7 @@ public class ItemAdapterSimpleFactoryTest {
         //given
         Item standardItem = new Item("Elixir of the Mongoose", 5, 7);
         //when
-        ItemAdapter result = ItemAdapterSimpleFactory.createItemAdapter(standardItem);
+        ItemAdapter result = ItemAdapterResolver.createItemAdapter(standardItem);
         //then
         assertEquals(standardItem.name, result.getItem().name);
         assertEquals(standardItem.sellIn, result.getItem().sellIn);
@@ -62,7 +62,7 @@ public class ItemAdapterSimpleFactoryTest {
         //given
         Item conjured = new Item("Conjured Mana Cake", 3, 6);
         //when
-        ItemAdapter result = ItemAdapterSimpleFactory.createItemAdapter(conjured);
+        ItemAdapter result = ItemAdapterResolver.createItemAdapter(conjured);
         //then
         assertEquals(conjured.name, result.getItem().name);
         assertEquals(conjured.sellIn, result.getItem().sellIn);

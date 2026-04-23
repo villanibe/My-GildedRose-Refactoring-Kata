@@ -15,7 +15,10 @@ public class BackstagePassesRule extends UpdateInventoryTemplateRule {
 
     @Override
     protected int getQualityFactor(final boolean isExpired, final ItemAdapter itemAdapter) {
-        return isExpired ? itemAdapter.getItem().quality : checkSellInRange(itemAdapter);
+        if (isExpired) {
+            itemAdapter.getItem().quality = 0;
+        }
+        return checkSellInRange(itemAdapter);
     }
 
     @Override

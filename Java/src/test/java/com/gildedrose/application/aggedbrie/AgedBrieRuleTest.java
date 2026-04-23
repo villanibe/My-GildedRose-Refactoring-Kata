@@ -14,7 +14,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesByOne() {
         //given
         Item agedBrie = new Item("Aged Brie", 5, 2);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -29,7 +29,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesByTwoWhenExpired() {
         //given
         Item agedBrie = new Item("Aged Brie", 0, 2);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -44,7 +44,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesNoMoreThan50() {
         //given
         Item agedBrie = new Item("Aged Brie", 5, 50);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -59,7 +59,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesNoMoreThan50WhenIsExpired() {
         //given
         Item agedBrie = new Item("Aged Brie", 0, 50);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
