@@ -8,18 +8,18 @@ import com.gildedrose.application.sulfuras.SulfurasRule;
 import com.gildedrose.domain.item.ItemAdapter;
 import com.gildedrose.domain.item.ItemType;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class InventoryRuleEngine {
 
-    private static final Map<ItemType, UpdateInventoryTemplateRule> updateInventoryRules = new HashMap<>(){{
-        put(ItemType.AGED_BRIE, new AgedBrieRule());
-        put(ItemType.SULFURAS, new SulfurasRule());
-        put(ItemType.BACKSTAGE_PASSES, new BackstagePassesRule());
-        put(ItemType.STANDARD, new StandardItemRule());
-        put(ItemType.CONJURED, new ConjuredRule());
-    }};
+    private static final Map<ItemType, UpdateInventoryTemplateRule> updateInventoryRules =
+        Map.of(
+            ItemType.AGED_BRIE, new AgedBrieRule(),
+            ItemType.SULFURAS, new SulfurasRule(),
+            ItemType.BACKSTAGE_PASSES, new BackstagePassesRule(),
+            ItemType.STANDARD, new StandardItemRule(),
+            ItemType.CONJURED, new ConjuredRule()
+        );
 
     public static void applyUpdateRule(ItemAdapter itemAdapter) {
         final UpdateInventoryTemplateRule rule = updateInventoryRules.get(itemAdapter.getItemType());
