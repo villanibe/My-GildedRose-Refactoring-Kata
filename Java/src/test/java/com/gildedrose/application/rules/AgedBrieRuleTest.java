@@ -1,9 +1,8 @@
-package com.gildedrose.application.aggedbrie;
+package com.gildedrose.application.rules;
 
-import com.gildedrose.application.agedbrie.AgedBrieRule;
-import com.gildedrose.domain.item.Item;
-import com.gildedrose.domain.item.ItemAdapter;
-import com.gildedrose.domain.item.ItemType;
+import com.gildedrose.domain.Item;
+import com.gildedrose.application.ItemAdapter;
+import com.gildedrose.domain.ItemType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +13,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesByOne() {
         //given
         Item agedBrie = new Item("Aged Brie", 5, 2);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -29,7 +28,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesByTwoWhenExpired() {
         //given
         Item agedBrie = new Item("Aged Brie", 0, 2);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -44,7 +43,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesNoMoreThan50() {
         //given
         Item agedBrie = new Item("Aged Brie", 5, 50);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when
@@ -59,7 +58,7 @@ public class AgedBrieRuleTest {
     void agedBrieQualityIncreasesNoMoreThan50WhenIsExpired() {
         //given
         Item agedBrie = new Item("Aged Brie", 0, 50);
-        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGEG_BRIE, agedBrie);
+        ItemAdapter agedBrieAdapter = new ItemAdapter(ItemType.AGED_BRIE, agedBrie);
         AgedBrieRule agedBrieRule = new AgedBrieRule();
 
         //when

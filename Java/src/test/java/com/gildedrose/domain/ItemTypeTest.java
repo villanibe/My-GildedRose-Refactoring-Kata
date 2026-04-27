@@ -1,6 +1,7 @@
-package com.gildedrose.domain.item;
+package com.gildedrose.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class ItemTypeTest {
@@ -12,7 +13,7 @@ public class ItemTypeTest {
         //when
         ItemType result = ItemType.findByValue(agedBrie);
         //then
-        assertEquals(ItemType.AGEG_BRIE, result);
+        assertEquals(ItemType.AGED_BRIE, result);
     }
 
     @Test

@@ -1,6 +1,6 @@
-package com.gildedrose.core.rule;
+package com.gildedrose.core;
 
-import com.gildedrose.domain.item.ItemAdapter;
+import com.gildedrose.application.ItemAdapter;
 
 public abstract class UpdateInventoryTemplateRule {
 
@@ -10,9 +10,14 @@ public abstract class UpdateInventoryTemplateRule {
     final int SELL_IN_UNIT = 1;
 
     public final void processItem(final ItemAdapter itemAdapter) {
+        preProcess(itemAdapter);
 
         boolean isExpired = isExpired(itemAdapter);
         int qualityFactor = getQualityFactor(isExpired, itemAdapter);
+
+        if (isExpired) {
+            onExpired(itemAdapter);
+        }
 
         if (canIncreaseQuality(isExpired, itemAdapter)) {
             increaseQuality(itemAdapter, qualityFactor);
@@ -25,12 +30,27 @@ public abstract class UpdateInventoryTemplateRule {
         if (canDecreaseQuality(isExpired, itemAdapter)) {
             decreaseQuality(itemAdapter, qualityFactor);
         }
+
+        postProcess(itemAdapter);
     }
 
     protected abstract boolean canSubtractSellIn(final ItemAdapter itemAdapter);
     protected abstract int getQualityFactor(final boolean isExpired, final ItemAdapter itemAdapter);
     protected abstract boolean canIncreaseQuality(final boolean isExpired, final ItemAdapter itemAdapter);
-    protected abstract boolean canDecreaseQuality(boolean isExpired, final ItemAdapter itemAdapter);
+    protected abstract boolean canDecreaseQuality(final boolean isExpired, final ItemAdapter itemAdapter);
+
+
+    protected void onExpired(final ItemAdapter itemAdapter) {
+        // default: do nothing
+    }
+
+    protected void preProcess(final ItemAdapter itemAdapter) {
+        // default: do nothing
+    }
+
+    protected void postProcess(final ItemAdapter itemAdapter) {
+        // default: do nothing
+    }
 
     private void subtractSellIn(final ItemAdapter itemAdapter) {
         itemAdapter.getItem().sellIn -= SELL_IN_UNIT;

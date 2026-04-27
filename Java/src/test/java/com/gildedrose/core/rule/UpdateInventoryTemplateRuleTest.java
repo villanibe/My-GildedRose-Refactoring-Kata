@@ -1,8 +1,9 @@
 package com.gildedrose.core.rule;
 
-import com.gildedrose.domain.item.Item;
-import com.gildedrose.domain.item.ItemAdapter;
-import com.gildedrose.domain.item.ItemType;
+import com.gildedrose.core.UpdateInventoryTemplateRule;
+import com.gildedrose.domain.Item;
+import com.gildedrose.application.ItemAdapter;
+import com.gildedrose.domain.ItemType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

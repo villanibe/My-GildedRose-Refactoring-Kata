@@ -1,20 +1,21 @@
 package com.gildedrose.core.rule;
 
-import com.gildedrose.domain.item.Item;
-import com.gildedrose.domain.item.ItemAdapter;
-import com.gildedrose.domain.item.ItemType;
+import com.gildedrose.core.InventoryUpdater;
+import com.gildedrose.domain.Item;
+import com.gildedrose.application.ItemAdapter;
+import com.gildedrose.domain.ItemType;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class InventoryRuleEngineTest {
+public class InventoryUpdaterTest {
 
     @Test
     void shouldApplyAgedBrieRule() {
         //given
-        ItemAdapter itemAdapter = new ItemAdapter(ItemType.AGEG_BRIE, new Item("Aged Brie", 3, 0));
+        ItemAdapter itemAdapter = new ItemAdapter(ItemType.AGED_BRIE, new Item("Aged Brie", 3, 0));
 
         //when
-        InventoryRuleEngine.applyUpdateRule(itemAdapter);
+        InventoryUpdater.applyUpdateRule(itemAdapter);
 
         //then
         assertEquals(2, itemAdapter.getItem().sellIn);
@@ -28,7 +29,7 @@ public class InventoryRuleEngineTest {
             new Item("Sulfuras, Hand of Ragnaros", 3, 80));
 
         //when
-        InventoryRuleEngine.applyUpdateRule(itemAdapter);
+        InventoryUpdater.applyUpdateRule(itemAdapter);
 
         //then
         assertEquals(3, itemAdapter.getItem().sellIn);
@@ -42,7 +43,7 @@ public class InventoryRuleEngineTest {
             new Item("Backstage passes to a TAFKAL80ETC concert", 3, 10));
 
         //when
-        InventoryRuleEngine.applyUpdateRule(itemAdapter);
+        InventoryUpdater.applyUpdateRule(itemAdapter);
 
         //then
         assertEquals(2, itemAdapter.getItem().sellIn);
@@ -56,7 +57,7 @@ public class InventoryRuleEngineTest {
             new Item("Elixir of the Mongoose", 5, 7));
 
         //when
-        InventoryRuleEngine.applyUpdateRule(itemAdapter);
+        InventoryUpdater.applyUpdateRule(itemAdapter);
 
         //then
         assertEquals(4, itemAdapter.getItem().sellIn);
@@ -70,7 +71,7 @@ public class InventoryRuleEngineTest {
             new Item("Conjured Mana Cake", 3, 6));
 
         //when
-        InventoryRuleEngine.applyUpdateRule(itemAdapter);
+        InventoryUpdater.applyUpdateRule(itemAdapter);
 
         //then
         assertEquals(2, itemAdapter.getItem().sellIn);

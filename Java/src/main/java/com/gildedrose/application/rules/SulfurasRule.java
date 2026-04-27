@@ -1,23 +1,30 @@
-package com.gildedrose.application.agedbrie;
+package com.gildedrose.application.rules;
 
-import com.gildedrose.core.rule.UpdateInventoryTemplateRule;
-import com.gildedrose.domain.item.ItemAdapter;
+import com.gildedrose.core.UpdateInventoryTemplateRule;
+import com.gildedrose.application.ItemAdapter;
 
-public class AgedBrieRule extends UpdateInventoryTemplateRule {
+public class SulfurasRule extends UpdateInventoryTemplateRule {
+
+    final int SULFURAS_DEFAULT_QUALITY = 80;
+
+    @Override
+    protected void preProcess(ItemAdapter itemAdapter) {
+        itemAdapter.getItem().quality = SULFURAS_DEFAULT_QUALITY;
+    }
 
     @Override
     protected boolean canSubtractSellIn(final ItemAdapter itemAdapter) {
-        return true;
+        return false;
     }
 
     @Override
     protected int getQualityFactor(final boolean isExpired, final ItemAdapter itemAdapter) {
-        return isExpired ? 2 : 1;
+        return 0;
     }
 
     @Override
     protected boolean canIncreaseQuality(boolean isExpired, final ItemAdapter itemAdapter) {
-        return true;
+        return false;
     }
 
     @Override
