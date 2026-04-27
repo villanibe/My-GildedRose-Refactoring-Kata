@@ -1,6 +1,6 @@
-package com.gildedrose.core.rule;
+package com.gildedrose.core;
 
-import com.gildedrose.domain.item.ItemAdapter;
+import com.gildedrose.application.ItemAdapter;
 
 public abstract class UpdateInventoryTemplateRule {
 

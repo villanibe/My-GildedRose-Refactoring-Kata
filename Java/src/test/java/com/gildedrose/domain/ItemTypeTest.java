@@ -1,6 +1,7 @@
-package com.gildedrose.domain.item;
+package com.gildedrose.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class ItemTypeTest {

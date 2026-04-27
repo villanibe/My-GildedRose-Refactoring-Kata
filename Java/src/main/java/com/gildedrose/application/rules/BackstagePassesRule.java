@@ -1,7 +1,7 @@
-package com.gildedrose.application.backstagepasses;
+package com.gildedrose.application.rules;
 
-import com.gildedrose.core.rule.UpdateInventoryTemplateRule;
-import com.gildedrose.domain.item.ItemAdapter;
+import com.gildedrose.core.UpdateInventoryTemplateRule;
+import com.gildedrose.application.ItemAdapter;
 
 public class BackstagePassesRule extends UpdateInventoryTemplateRule {
 

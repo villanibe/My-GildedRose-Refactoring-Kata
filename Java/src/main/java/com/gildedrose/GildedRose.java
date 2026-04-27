@@ -1,9 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.core.rule.InventoryRuleEngine;
-import com.gildedrose.domain.item.Item;
-import com.gildedrose.domain.item.ItemAdapter;
-import com.gildedrose.domain.item.ItemAdapterResolver;
+import com.gildedrose.core.InventoryUpdater;
+import com.gildedrose.domain.Item;
+import com.gildedrose.application.ItemAdapter;
 
 class GildedRose {
 
@@ -15,8 +14,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemAdapter itemAdapter = ItemAdapterResolver.createItemAdapter(item);
-            InventoryRuleEngine.applyUpdateRule(itemAdapter);
+            ItemAdapter itemAdapter = ItemAdapter.createItemAdapter(item);
+            InventoryUpdater.applyUpdateRule(itemAdapter);
         }
     }
 }
